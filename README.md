@@ -10,7 +10,9 @@
 - <hw_1> 2017.3.7 已經更新上傳
 			
 ## week_2 : 
+- 目標: 第二周
 
+- <hw_2> https://github.com/dppss90008/NTU_code/blob/master/week_2/hw_2/EarthquakeRCrawler.html
 
 ## R_資料科學程式設計
 
