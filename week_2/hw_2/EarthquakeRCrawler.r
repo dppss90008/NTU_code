@@ -12,6 +12,8 @@ txt=iconv(txt,"UTF-8")
 
 # data processing : clean the data and store it into dataframe type
 name <- txt[1:7]
+name[3] <- 'Lon'
+name[4] <- 'Lat'
 earthquake_data <- matrix(txt[8:length(txt)],(nrow=length(txt)-7)/7,ncol=7,byrow= TRUE)
 earthquake_data <- data.frame(earthquake_data)
 names(earthquake_data) <- name
@@ -19,8 +21,8 @@ View(earthquake_data)
 
 # data image : Use google map to image earthquake data
 library(ggmap)
-lon <- sapply((strsplit(as.character(earthquake_data$¸g«×), ",")), as.numeric)
-lat <- sapply((strsplit(as.character(earthquake_data$½n«×), ",")), as.numeric)
+lon <- sapply((strsplit(as.character(earthquake_data$Lon), ",")), as.numeric)
+lat <- sapply((strsplit(as.character(earthquake_data$Lat), ",")), as.numeric)
 map <- get_map(location = 'Taiwan', zoom = 7, maptype = "terrain")
 ggmap(map, darken = c(0.5, "white")) + geom_point(aes(x = lon, y = lat),size=2,color = 'dark blue',data = earthquake_data)
 
