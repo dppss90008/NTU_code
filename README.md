@@ -10,9 +10,24 @@
 - <hw_1> 2017.3.7 已經更新上傳
 			
 ## week_2 : 
-- 目標: 第二周
+- 目標: 本周的目標為利用R語言進行網頁爬蟲。藉由爬蟲，可以從網頁上獲取有用的資料，並進行後續資料處理與分析。
+- 課堂中 :
+1. Course2 內容學習
+2. R資料結構: dataframe
+3. 網頁爬蟲 : 閱讀爬蟲參考指令與老師範本，利用chrome觀察中央氣象局地震資料
+- 課後 : 
+1. Github markdown 延伸學習1 https://guides.github.com/features/mastering-markdown/
+2. Github markdown 延伸學習2 https://github.com/othree/markdown-syntax-zhtw
+3. R markdown 延伸學習 : Youtube 影片
+- hw_2 
+1. 使用中央氣象局地震資料進行網頁爬蟲- 利用rvest套件
+2. 利用SelectorGadget以CSS進行網頁觀察
+3. 資料清理，整理成dataframe形式
+4. data image : 因為資料有地震經緯度點，因此利用ggmap套件進行視覺化https://blog.gtwang.org/r/r-ggmap-package-spatial-data-visualization/
+5. 建立R markdown、html 
+6. <上傳hw2> https://github.com/dppss90008/NTU_code/tree/master/week_2/hw_2
 
-- <hw_2> https://github.com/dppss90008/NTU_code/blob/master/week_2/hw_2/EarthquakeRCrawler.html
+https://github.com/dppss90008/NTU_code/blob/master/week_2/hw_2/EarthquakeRCrawler.html
 
 ## R_資料科學程式設計
 
