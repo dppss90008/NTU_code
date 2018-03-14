@@ -1,7 +1,7 @@
 ---
 title: "Earthquake_data"
 author: "Xie"
-date: "2018?~3??14??"
+date: "2018/3/14"
 output: html_document
 ---
 
