@@ -26,7 +26,7 @@
 4. data image : 因為資料有地震經緯度點，因此利用ggmap套件進行視覺化https://blog.gtwang.org/r/r-ggmap-package-spatial-data-visualization/
 5. 建立R markdown、html 
 6. <上傳hw2> https://github.com/dppss90008/NTU_code/tree/master/week_2/hw_2
-https://htmlpreview.github.io/?https://github.com/dppss90008/NTU_code/blob/master/week_2/hw_2/EarthquakeRCrawler.html
+https://dppss90008.github.io/NTU_code/week_2/hw_2/EarthquakeRCrawler.html
 
 ## R_資料科學程式設計
 
