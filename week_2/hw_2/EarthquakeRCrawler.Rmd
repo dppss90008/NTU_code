@@ -1,7 +1,7 @@
 ---
 title: "Earthquake_data"
 author: "Xie"
-date: "2018年3月14日"
+date: "2018?~3??14??"
 output: html_document
 ---
 
@@ -35,11 +35,6 @@ names(earthquake_data) <- name
 library(knitr)
 kable(earthquake_data)
 
-library(ggmap)
-lon <- sapply((strsplit(as.character(earthquake_data$經度), ",")), as.numeric)
-lat <- sapply((strsplit(as.character(earthquake_data$緯度), ",")), as.numeric)
-map <- get_map(location = 'Taiwan', zoom = 7, maptype = "terrain")
-ggmap(map, darken = c(0.5, "white")) + geom_point(aes(x = lon, y = lat),size=2,color = 'dark blue',data = earthquake_data)
 
 ```
 
