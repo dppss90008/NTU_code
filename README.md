@@ -33,6 +33,9 @@ https://dppss90008.github.io/NTU_code/week_2/hw_2/EarthquakeRCrawler.html
 - 課堂中 :
 1. 資料視覺化內容學習(練習使用內建之iris data) https://yijutseng.github.io/DataScienceRBook/vis.html#section-8.1
 2. 共學活動<議題>網頁爬蟲-深入探索 CSS selector https://docs.google.com/spreadsheets/d/1VGTjP-O-gBMgUo_zZ5ld_LBLIsaT6Kim4lHBFJGYcLM/edit#gid=1453477086
+- 課後 : 
+1. 問題: 使用R markdown時遇到圖片出不來的情況
+2. R markdown 使用教學<問題解決> https://joe188032.github.io/pecuclass1/rmarkdownteach.html#1 
 - hw_3
 1. 將上週中央氣象局地震資料存取成CSV file
 2. 利用gggmap套件視覺化觀測地震資料發生地點

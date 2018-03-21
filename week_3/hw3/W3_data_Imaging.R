@@ -25,4 +25,7 @@ P3 <- ggplot(data = dat, aes(x = dat$depth)) +
 P3 + xlab("depth")
 plot(P3)
 
+library(ggplot2)
+P4 <- qplot(data= dat, x=dat$magnitude, y=dat$depth, xlab='magnitude',ylab='depth')
+plot(P4)
 
