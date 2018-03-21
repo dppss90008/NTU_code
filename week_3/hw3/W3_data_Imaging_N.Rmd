@@ -1,0 +1,62 @@
+---
+title: "2018/2 Earthquake data imaging"
+author: "Xie"
+date: "2018/3/21"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Data imaging
+```
+資料視覺化: 
+1. 使用資料 : 中央氣象局2月份地震資料  
+2. 圖1 : 利用資料點之經緯度繪製ggmap
+3. 圖2 : 利用Histogram分析地震規模
+4. 圖3 : 利用Histogram分析地震深度
+5. 圖4 : 利用Scatter plot分析規模與深度相關性
+```
+
+```{r}
+# Open data from Earthquake_data.csv
+dat <- read.csv("Earthquake_data.csv")
+```
+## ggmap
+```{r}
+# February earthquake data imaging
+# Using ggmap to visualize earthquake occurence
+library(ggmap)
+lon <- sapply((strsplit(as.character(dat$Longitude), ",")), as.numeric)
+lat <- sapply((strsplit(as.character(dat$Latitude), ",")), as.numeric)
+map <- get_map(location = 'Taiwan', zoom = 7, maptype = "terrain")
+P1 <- ggmap(map, darken = c(0.5, "white")) + geom_point(aes(x = lon, y = lat),size=2,
+                                                  color = 'dark blue',data = dat)
+plot(P1)
+```
+
+## Histogram
+```{r}
+# Histogram of earthquake magnitude
+P2 <- ggplot(data = dat, aes(x = dat$magnitude)) +
+  geom_bar(fill = "lightblue", colour = "black")
+P2 + xlab("magnitude")
+
+```
+```{r}
+# Histogram of earthquake depth
+P3 <- ggplot(data = dat, aes(x = dat$depth)) +
+  geom_bar(fill = "lightblue", colour = "black")
+P3 + xlab("depth")
+```
+
+## Scatter plot
+```{r}
+# Scatter plot of magniude and depth
+library(ggplot2)
+P4 <- qplot(data= dat, x=dat$magnitude, y=dat$depth, xlab='magnitude',ylab='depth',geom = c("point", "smooth"))
+plot(P4)
+```
+
+

@@ -27,3 +27,5 @@ map <- get_map(location = 'Taiwan', zoom = 7, maptype = "terrain")
 ggmap(map, darken = c(0.5, "white")) + geom_point(aes(x = lon, y = lat),size=2,color = 'dark blue',data = earthquake_data)
 
 
+ggplot(data = earthquake_data, aes(x = 規模)) +
+  geom_bar(fill = "lightblue", colour = "black")
