@@ -28,6 +28,19 @@
 6. <上傳hw2> https://github.com/dppss90008/NTU_code/tree/master/week_2/hw_2
 https://dppss90008.github.io/NTU_code/week_2/hw_2/EarthquakeRCrawler.html
 
+## weel_3 :
+-目標 : 本周的目標為利用R語言進行資料視覺化。藉由視覺化，可方便使用者觀測收集到的資料
+- 課堂中 :
+1. 資料視覺化內容學習(練習使用內建之iris data) https://yijutseng.github.io/DataScienceRBook/vis.html#section-8.1
+2. 共學活動<議題>網頁爬蟲-深入探索 CSS selector https://docs.google.com/spreadsheets/d/1VGTjP-O-gBMgUo_zZ5ld_LBLIsaT6Kim4lHBFJGYcLM/edit#gid=1453477086
+- hw_3
+1. 將上週中央氣象局地震資料存取成CSV file
+2. 利用gggmap套件視覺化觀測地震資料發生地點
+3. 利用ggplot套件分析地震規模、深度發生次數
+4. 利用qplot套件分析規模、深度相關性
+5. 建立R markdown、html
+6. <上傳hw3> https://dppss90008.github.io/NTU_code/week_3/hw3/W3_data_Imaging_N.html
+
 ## R_資料科學程式設計
 
 - [課程大綱](https://nol.ntu.edu.tw/nol/coursesearch/print_table.php?course_id=H03%2004010&class=&dpt_code=H020&ser_no=46352&semester=106-2&lang=CH)
