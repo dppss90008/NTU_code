@@ -28,7 +28,7 @@
 6. <上傳hw2> https://github.com/dppss90008/NTU_code/tree/master/week_2/hw_2
 https://dppss90008.github.io/NTU_code/week_2/hw_2/EarthquakeRCrawler.html
 
-## weel_3 :
+## week_3 :
 -目標 : 本周的目標為利用R語言進行資料視覺化。藉由視覺化，可方便使用者觀測收集到的資料
 - 課堂中 :
 1. 資料視覺化內容學習(練習使用內建之iris data) https://yijutseng.github.io/DataScienceRBook/vis.html#section-8.1
