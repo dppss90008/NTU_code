@@ -42,7 +42,8 @@ https://dppss90008.github.io/NTU_code/week_2/hw_2/EarthquakeRCrawler.html
 3. 利用ggplot套件分析地震規模、深度發生次數
 4. 利用qplot套件分析規模、深度相關性
 5. 建立R markdown、html
-6. <上傳hw3> https://dppss90008.github.io/NTU_code/week_3/hw3/W3_data_Imaging_N.html
+6. <上傳hw3> https://github.com/dppss90008/NTU_code/tree/master/week_3/hw3
+https://dppss90008.github.io/NTU_code/week_3/hw3/W3_data_Imaging_N.html
 
 ## R_資料科學程式設計
 
