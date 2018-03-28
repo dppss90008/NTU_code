@@ -5,6 +5,23 @@
 - 學號:r06b42001
 
 # 課程學習歷程
+## <置頂>week_4 :
+-目標 : 利用FacebookAPI分析Facebook文本資料，並繪製文字雲
+- 課堂中 : 
+1. FacebookAPI資料學習
+2. 共學活動<議題>Facebook API
+- 課後 : 
+1. 書籍閱讀-應用R語言於資料分析 : 從機器學習、資料探勘到巨量資料 / 李仁鐘著 
+2. R文字雲 http://to52016.pixnet.net/blog/post/342915697-%5Br%5D-%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8--text-mining-%E6%96%87%E5%AD%97%E9%9B%B2---%E4%BB%A5%E8%87%AA%E7%94%B1%E6%99%82%E5%A0%B1%E9%AB%94
+3. R斷詞 https://blog.stranity.com.tw/2016/11/22/%E6%96%87%E5%AD%97%E6%8E%A2%E5%8B%98%EF%BC%8D%E4%B8%AD%E6%96%87%E6%96%B7%E8%A9%9E/
+- hw_4
+1. 利用FacebookAPI 收集靠北中興發文資料
+2. 資料清理，整理成dataframe形式
+3. 繪製文字雲
+4. 建立R markdown、html
+5. <上傳hw4>
+https://dppss90008.github.io/NTU_code/week_4/hw_4/RfacebookAPI.html
+
 ## week_1 : 
 - 第一周的課程為R語言的入門。為了具備R的語言基礎，我利用R翻轉教室簡單認識R語言的資料結構、流程控制及Course 1 對於R code有基本的認識。
 - <hw_1> 2017.3.7 已經更新上傳
@@ -44,6 +61,8 @@ https://dppss90008.github.io/NTU_code/week_2/hw_2/EarthquakeRCrawler.html
 5. 建立R markdown、html
 6. <上傳hw3> https://github.com/dppss90008/NTU_code/tree/master/week_3/hw3
 https://dppss90008.github.io/NTU_code/week_3/hw3/W3_data_Imaging_N.html
+
+
 
 ## R_資料科學程式設計
 
