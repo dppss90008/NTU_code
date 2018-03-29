@@ -1,7 +1,6 @@
-
 ## 利用FacebookAPI-從靠北中興收集發文資料
 library(httr)
-token  = "EAACEdEose0cBAPSgCZA4LOp6DcbjhmW1WHYomFfLfBkVVMqcqPDokF62tbXVE2ZAh4gsFxqCpu75hIYcwZCBJV4rbcWxlZCRVYvPZBsuXpwylrpImZAQnIepWVeMsFe2ZCww6Wlfg20IlmBSrTVHEMiyN53zb4cHaD1jeoafJ55r24pSZBXEQKZAShZBProagtW6gZD"
+token  = "EAACEdEose0cBAJnAZCSVG9I1hEhzrtJvqB2Nv6qX6c9QQQty1PbyYivIKSZAZA96ZAZC3pkUafpMewZBYLBzIhHjm6Bn62ySpPBOWkbooLvpkDrnspHZC1vMkqN9ZCgUxPmdCazWBZA0EsfiuM0kRAIR7d8LkwbybpZCnW6IYxMTnZCBODB4GdcIrDZB0ZA8d7U0s2pUZD"
 prefex = "https://graph.facebook.com/v2.12/cowbaychunghsing/?fields=posts.limit(1000)&access_token="
 url    = paste0(prefex, token)
 res    = httr::GET(url)
@@ -35,6 +34,17 @@ jieba_tokenizer=function(d){
 }
 seg = lapply(docs, jieba_tokenizer)
 freqFrame = as.data.frame(table(unlist(seg)))
+
+# 清除單個字: Ex: 也，留下單個字以上 Ex: 不管，經過...
+for(i in c(1:length(freqFrame$Var1))){
+    if((freqFrame$Var1[i] %>% as.character %>% nchar) == 1){
+      freqFrame[i,] <- NA
+    }
+    if(freqFrame$Freq[i]==1){
+      freqFrame[i,] <-   }
+}
+freqFrame <- na.omit(freqFrame)
+
 
 ## 製作文字雲
 library(RColorBrewer)
