@@ -1,7 +1,7 @@
 ---
 title: "FacebookAPI"
 author: "Xie"
-date: "2018/3/29—¥"
+date: "2018/3/29î£™"
 output: html_document
 ---
 
@@ -9,12 +9,12 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## FacebookAPI ¦¬¶°¸ê®Æ
+## FacebookAPI æ”¶é›†è³‡æ–™
 
 ```{r}
-# §Q¥ÎFacebookAPI-±q¾a¥_¤¤¿³¦¬¶°µo¤å¸ê®Æ
+# åˆ©ç”¨FacebookAPI-å¾é åŒ—ä¸­èˆˆæ”¶é›†ç™¼æ–‡è³‡æ–™
 library(httr)
-token  = "EAACEdEose0cBAPSgCZA4LOp6DcbjhmW1WHYomFfLfBkVVMqcqPDokF62tbXVE2ZAh4gsFxqCpu75hIYcwZCBJV4rbcWxlZCRVYvPZBsuXpwylrpImZAQnIepWVeMsFe2ZCww6Wlfg20IlmBSrTVHEMiyN53zb4cHaD1jeoafJ55r24pSZBXEQKZAShZBProagtW6gZD"
+token  = "EAACEdEose0cBAJnAZCSVG9I1hEhzrtJvqB2Nv6qX6c9QQQty1PbyYivIKSZAZA96ZAZC3pkUafpMewZBYLBzIhHjm6Bn62ySpPBOWkbooLvpkDrnspHZC1vMkqN9ZCgUxPmdCazWBZA0EsfiuM0kRAIR7d8LkwbybpZCnW6IYxMTnZCBODB4GdcIrDZB0ZA8d7U0s2pUZD"
 prefex = "https://graph.facebook.com/v2.12/cowbaychunghsing/?fields=posts.limit(1000)&access_token="
 url    = paste0(prefex, token)
 res    = httr::GET(url)
@@ -23,9 +23,9 @@ posts  = httr::content(res)
 library(magrittr)
 DATA = posts$posts$data %>% do.call(rbind,.) %>% data.frame
 ```
-## ¸ê®Æ²M²z 
+## è³‡æ–™æ¸…ç† 
 ```{r}
-# ¥h°£¼ĞÂI²Å¸¹¡B­^¤å...
+# å»é™¤æ¨™é»ç¬¦è™Ÿã€è‹±æ–‡...
 library(NLP)
 library(tm)
 library(jiebaRD)
@@ -38,7 +38,7 @@ toSpace <- content_transformer(function(x,pattern){
 
 docs <- tm_map(docs,toSpace,"\n")
 docs <- tm_map(docs,toSpace, "[A-Za-z0-9]")
-docs <- tm_map(docs,toSpace, "#¾a¥_¤¤¿³")
+docs <- tm_map(docs,toSpace, "#é åŒ—ä¸­èˆˆ")
 docs <- tm_map(docs, removePunctuation)
 docs <- tm_map(docs, removeNumbers)
 docs <- tm_map(docs, stripWhitespace)
@@ -50,8 +50,16 @@ jieba_tokenizer=function(d){
 }
 seg = lapply(docs, jieba_tokenizer)
 freqFrame = as.data.frame(table(unlist(seg)))
+#æ¸…é™¤å–®å€‹å­—: Ex: ä¹Ÿï¼Œç•™ä¸‹å–®å€‹å­—ä»¥ä¸Š Ex: ä¸ç®¡ï¼Œç¶“é...
+for(i in c(1:length(freqFrame$Var1))){
+    if((freqFrame$Var1[i] %>% as.character %>% nchar) == 1){
+      freqFrame[i,] <- NA
+    }
+}
+freqFrame <- na.omit(freqFrame)
+
 ```
-## »s§@¤å¦r¶³
+## è£½ä½œæ–‡å­—é›²
 ```{r}
 library(RColorBrewer)
 library(wordcloud)
