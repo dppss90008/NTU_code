@@ -10,11 +10,11 @@ library(slam)
 library(Matrix)
 library(tidytext)
 
-
+#打開歷年總統元旦文告
 
 rawData = readtext("*.txt")
 docs = Corpus(VectorSource(rawData$text))
-# data clean
+# data cleaning : 
 toSpace <- content_transformer(function(x, pattern) {
   return (gsub(pattern, " ", x))
 })
@@ -24,10 +24,7 @@ docs <- tm_map(docs, stripWhitespace)
 docs <- tm_map(docs, toSpace, "[a-zA-Z]")
 
 # words cut
-keywords = read.csv("keywords.csv")
 mixseg = worker()
-keys = as.matrix(keywords)
-new_user_word(mixseg, keys)
 
 jieba_tokenizer = function(d){
   unlist(segment(d[[1]], mixseg))
@@ -60,5 +57,21 @@ for(x in 1:nrow(tdm))
 
 findZeroId = as.matrix(apply(doc.tfidf, 1, sum))
 tfidfnn = doc.tfidf[-which(findZeroId == 0),]
+freq=rowSums(as.matrix(tfidfnn))
+tail(freq,10)
+plot(sort(freq, decreasing = T),col="blue",main="Word TF-IDF frequencies", xlab="TF-IDF-based rank", ylab = "TF-IDF")
+
+library(tm)
+library(ggplot2)
+high.freq=tail(sort(freq),n=10)
+hfp.df=as.data.frame(sort(high.freq))
+hfp.df$names <- rownames(hfp.df) 
+tail(sort(freq),n=10)
+
+
+ggplot(hfp.df, aes(reorder(names,high.freq), high.freq)) +
+  geom_bar(stat="identity") + coord_flip() + 
+  xlab("Terms") + ylab("Frequency") +
+  ggtitle("Term frequencies")
 
 write.csv(tfidfnn, "show.csv")
