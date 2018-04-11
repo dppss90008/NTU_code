@@ -20,7 +20,8 @@
 3. 繪製文字雲
 4. 建立R markdown、html
 5. <上傳hw4>
-https://dppss90008.github.io/NTU_code/week_4/hw_4/RfacebookAPI_new.html
+
+https://dppss90008.github.io/NTU_code/week_4/hw_4/RfacebookAPI.html
 
 ## week_1 : 
 - 第一周的課程為R語言的入門。為了具備R的語言基礎，我利用R翻轉教室簡單認識R語言的資料結構、流程控制及Course 1 對於R code有基本的認識。
