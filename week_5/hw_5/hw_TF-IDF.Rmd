@@ -9,4 +9,125 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## TF-IDF
+
+-程式功能: 使用Text mining, TF-IDF演算法進行文本分析，挖掘出重要的字
+-使用文本: 從中華民國總統府網站下載歷年總統元旦文告進行分析
+
+```{r}
+# import library
+library(NLP)
+library(tm)
+library(stats)
+library(proxy)
+library(dplyr)
+library(readtext)
+library(jiebaRD)
+library(jiebaR)
+library(slam)
+library(Matrix)
+library(tidytext)
+```
+
+## Open file and data cleaning
+
+```{r}
+# Open the text file of President’s New Year’s Day Message
+# (from The 86th year of the Republic Era to 105th)
+ 
+rawData = readtext("*.txt")
+docs = Corpus(VectorSource(rawData$text))
+
+# data cleaning : remove Punctuation, Numbers, Whitespace anf Eng.
+# I found that using RemovePunctuation function will cause some word garble. 
+toSpace <- content_transformer(function(x, pattern) {
+  return (gsub(pattern, " ", x))
+})
+docs <- tm_map(docs, toSpace, "、")
+docs <- tm_map(docs, toSpace, "，")
+docs <- tm_map(docs, toSpace, "。")
+docs <- tm_map(docs, toSpace, "！")
+docs <- tm_map(docs, toSpace, "「")
+docs <- tm_map(docs, toSpace, "（")
+docs <- tm_map(docs, toSpace, "」")
+docs <- tm_map(docs, toSpace, "）")
+docs <- tm_map(docs, toSpace, "\n")
+docs <- tm_map(docs, removeNumbers)
+docs <- tm_map(docs, toSpace, "[a-zA-Z]")
+docs <- tm_map(docs, stripWhitespace)
+```
+
+## word cut
+
+利用jiebaR，進行斷詞及計算在每個文本出現的次數
+
+```{r}
+mixseg = worker()
+
+jieba_tokenizer = function(d){
+  unlist(segment(d[[1]], mixseg))
+}
+seg = lapply(docs, jieba_tokenizer)
+freqFrame = as.data.frame(table(unlist(seg)))
+
+d.corpus <- Corpus(VectorSource(seg))
+tdm <- TermDocumentMatrix(d.corpus)
+tf <- as.matrix(tdm)
+DF <- tidy(tf)
+# Take a look at a subset of DF
+head(DF,10)
+```
+
+## TF-IDF computation
+
+利用TF-IDF 演算法進行文字挖掘與加權，評估文字之重要程度
+```{r}
+N = tdm$ncol
+tf <- apply(tdm, 2, sum)
+idfCal <- function(word_doc)
+{ 
+  log2( N / nnzero(word_doc) ) 
+}
+idf <- apply(tdm, 1, idfCal)
+
+doc.tfidf <- as.matrix(tdm)
+for(x in 1:nrow(tdm))
+{
+  for(y in 1:ncol(tdm))
+  {
+    doc.tfidf[x,y] <- (doc.tfidf[x,y] / tf[y]) * idf[x]
+  }
+}
+
+findZeroId = as.matrix(apply(doc.tfidf, 1, sum))
+tfidfnn = doc.tfidf[-which(findZeroId == 0),]
+
+# Take a look at a subset of tfidfnn 
+head(tfidfnn,10)
+```
+
+## Data Visualization
+
+```{r}
+# Word TF-IDF frequencics
+freq=rowSums(as.matrix(tfidfnn))
+tail(freq,10)
+plot(sort(freq, decreasing = T),col="blue",main="Word TF-IDF frequencies", xlab="TF-IDF-based rank", ylab = "TF-IDF")
+```
+
+```{r}
+# Term frequencics 
+
+library(ggplot2)
+high.freq=tail(sort(freq),n=20)
+hfp.df=as.data.frame(sort(high.freq))
+hfp.df$names <- rownames(hfp.df) 
+tail(sort(freq),n=20)
+
+ggplot(hfp.df, aes(reorder(names,high.freq), high.freq)) +
+  geom_bar(stat="identity") + coord_flip() + 
+  xlab("Terms") + ylab("Frequency") +
+  ggtitle("Term frequencies")
+
+```
 

@@ -46,8 +46,10 @@ freqFrame = as.data.frame(table(unlist(seg)))
 
 d.corpus <- Corpus(VectorSource(seg))
 tdm <- TermDocumentMatrix(d.corpus)
-print( tf <- as.matrix(tdm) )
+tf <- as.matrix(tdm)
 DF <- tidy(tf)
+# Take a look of DF
+head(DF,10)
 
 # tf-idf computation
 N = tdm$ncol
@@ -69,6 +71,7 @@ for(x in 1:nrow(tdm))
 
 findZeroId = as.matrix(apply(doc.tfidf, 1, sum))
 tfidfnn = doc.tfidf[-which(findZeroId == 0),]
+head(tfidfnn,10)
 write.csv(tfidfnn, "show.csv")
 
 # Data Visualization
