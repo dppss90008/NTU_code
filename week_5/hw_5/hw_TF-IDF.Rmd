@@ -1,0 +1,12 @@
+---
+title: "Hw_5_TF-IDF"
+author: "Xie"
+date: "2018/4/11"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+

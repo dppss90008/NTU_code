@@ -62,3 +62,4 @@ findZeroId = as.matrix(apply(doc.tfidf, 1, sum))
 tfidfnn = doc.tfidf[-which(findZeroId == 0),]
 
 write.csv(tfidfnn, "show.csv")
+

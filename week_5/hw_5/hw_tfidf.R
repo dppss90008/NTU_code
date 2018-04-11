@@ -1,3 +1,4 @@
+# import library
 library(NLP)
 library(tm)
 library(stats)
@@ -10,20 +11,31 @@ library(slam)
 library(Matrix)
 library(tidytext)
 
-#打開歷年總統元旦文告
-
+# Open the text file of President’s New Year’s Day Message
+# (from The 86th year of the Republic Era to 105th)
+ 
 rawData = readtext("*.txt")
 docs = Corpus(VectorSource(rawData$text))
-# data cleaning : 
+
+# data cleaning : remove Punctuation, Numbers, Whitespace anf Eng.
+# I found that using RemovePunctuation function will cause some word garble. 
 toSpace <- content_transformer(function(x, pattern) {
   return (gsub(pattern, " ", x))
 })
-docs <- tm_map(docs, removePunctuation)
+docs <- tm_map(docs, toSpace, "、")
+docs <- tm_map(docs, toSpace, "，")
+docs <- tm_map(docs, toSpace, "。")
+docs <- tm_map(docs, toSpace, "！")
+docs <- tm_map(docs, toSpace, "「")
+docs <- tm_map(docs, toSpace, "（")
+docs <- tm_map(docs, toSpace, "」")
+docs <- tm_map(docs, toSpace, "）")
+docs <- tm_map(docs, toSpace, "\n")
 docs <- tm_map(docs, removeNumbers)
-docs <- tm_map(docs, stripWhitespace)
 docs <- tm_map(docs, toSpace, "[a-zA-Z]")
+docs <- tm_map(docs, stripWhitespace)
 
-# words cut
+# words cut 
 mixseg = worker()
 
 jieba_tokenizer = function(d){
@@ -57,16 +69,21 @@ for(x in 1:nrow(tdm))
 
 findZeroId = as.matrix(apply(doc.tfidf, 1, sum))
 tfidfnn = doc.tfidf[-which(findZeroId == 0),]
+write.csv(tfidfnn, "show.csv")
+
+# Data Visualization
+# Word TF-IDF frequencics
 freq=rowSums(as.matrix(tfidfnn))
 tail(freq,10)
 plot(sort(freq, decreasing = T),col="blue",main="Word TF-IDF frequencies", xlab="TF-IDF-based rank", ylab = "TF-IDF")
 
-library(tm)
+# Term frequencics 
+
 library(ggplot2)
-high.freq=tail(sort(freq),n=10)
+high.freq=tail(sort(freq),n=20)
 hfp.df=as.data.frame(sort(high.freq))
 hfp.df$names <- rownames(hfp.df) 
-tail(sort(freq),n=10)
+tail(sort(freq),n=20)
 
 
 ggplot(hfp.df, aes(reorder(names,high.freq), high.freq)) +
@@ -74,4 +91,5 @@ ggplot(hfp.df, aes(reorder(names,high.freq), high.freq)) +
   xlab("Terms") + ylab("Frequency") +
   ggtitle("Term frequencies")
 
-write.csv(tfidfnn, "show.csv")
+
+
