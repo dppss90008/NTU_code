@@ -76,6 +76,7 @@ write.csv(tfidfnn, "show.csv")
 
 # Data Visualization
 # Word TF-IDF frequencics
+
 freq=rowSums(as.matrix(tfidfnn))
 tail(freq,10)
 plot(sort(freq, decreasing = T),col="blue",main="Word TF-IDF frequencies", xlab="TF-IDF-based rank", ylab = "TF-IDF")
