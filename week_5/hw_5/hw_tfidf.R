@@ -76,7 +76,6 @@ write.csv(tfidfnn, "show.csv")
 
 # Data Visualization
 # Word TF-IDF frequencics
-
 freq=rowSums(as.matrix(tfidfnn))
 tail(freq,10)
 plot(sort(freq, decreasing = T),col="blue",main="Word TF-IDF frequencies", xlab="TF-IDF-based rank", ylab = "TF-IDF")
@@ -96,4 +95,28 @@ ggplot(hfp.df, aes(reorder(names,high.freq), high.freq)) +
   ggtitle("Term frequencies")
 
 
+x <- tail(sort(freq),n=20)
+for(i in 1:length(DF$.rownames)){
+  if(DF$.rownames[i]=="台灣"){
+    data <- (DF[i,])
+  }
+}
+for(i in 1:length(DF$.rownames)){
+  if(DF$.rownames[i]=="臺灣"){
+    data2 <- (DF[i,])
+  }
+}
+a <- rbind(data,data2)
+
+colnames(a) <- c('XD',88:105)
+
+barplot(as.matrix(a[2:19]),
+        main="臺灣與台灣字詞分布",
+        xlab='年份',
+        col=topo.colors(2)
+        ) 
+
+legend("topleft", legend=a$XD,
+       col=topo.colors(2), inset=.02,horiz=TRUE, cex=0.6,box.col="green")
+ql
 
