@@ -18,7 +18,7 @@ embark <- cbind(summary(train$embarked[train$survived==0]),summary(train$embarke
 embark <- embark[-1,] %>% t
 rownames(embark) <- c("0","1")
 
-barplot(embark,col=c("gray","black"),main="embarked variable",beside=TRUE,ylab="counts")
+barplot(embark,col=c("gray","black"),main=" embarked variable",beside=TRUE,ylab="counts")
 legend("topright", inset=.02,title="Survive",
        c("0","1"), fill=c("gray","black"), horiz=TRUE, cex=0.8)
 
