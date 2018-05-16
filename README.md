@@ -6,6 +6,10 @@
 
 # 課程學習歷程
 
+## Week_10
+- 作業<project> [project]((https://dppss90008.github.io/NTU_code/week_10/iris_Apriori_MK.html)
+
+
 ## Week_8 : 
 - 目標: 利用ML預測與學習資料
 - 作業<project 3> 我們是第五組!!我們的project放在[這裡](https://github.com/dppss90008/NTU-CSX-DataScience--Group5/tree/master/Project_3)
