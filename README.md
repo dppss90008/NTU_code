@@ -5,9 +5,12 @@
 - 學號:r06b42001
 
 # 課程學習歷程
+## Week_11
+- 作業<project5> [project]((https://dppss90008.github.io/NTU-CSX-DataScience--Group5/Project5/project.html)
+
 
 ## Week_10
-- 作業<project> [project]((https://dppss90008.github.io/NTU_code/week_10/iris_Apriori_MK.html)
+- 作業<project4> [project]((https://dppss90008.github.io/NTU-CSX-DataScience--Group5/project4/project4.html)
 
 
 ## Week_8 : 
