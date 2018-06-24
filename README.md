@@ -6,11 +6,11 @@
 
 # 課程學習歷程
 ## Week_11
-- 作業<project5> [project]((https://dppss90008.github.io/NTU-CSX-DataScience--Group5/Project5/project.html)
+- 作業<project5> [project5]((https://dppss90008.github.io/NTU-CSX-DataScience--Group5/Project5/project.html)
 
 
 ## Week_10
-- 作業<project4> [project]((https://dppss90008.github.io/NTU-CSX-DataScience--Group5/project4/project4.html)
+- 作業<project4> [project4]((https://dppss90008.github.io/NTU-CSX-DataScience--Group5/project4/project4.html)
 
 
 ## Week_8 : 
@@ -19,6 +19,10 @@
 - 作業<project 3> [ML預測](https://dppss90008.github.io/NTU-CSX-DataScience--Group5/Project3/project_3.nb.html)
 - 這是我們三個人一起寫作完成，我們視覺化分析titanic train data 選擇˙pclass + sex + family + body + boat 五個變數
 - 再利用SVM進行學習: 準確率有0.978!!!!!
+
+## week_7
+-小組報告<project 2> [PTT連結](https://github.com/dppss90008/NTU-CSX-DataScience--Group5/blob/master/Project2/Group-5-Project-2.pdf)
+
 
 ## week_5 :
 - 目標: 本周目標為學習TF-IDF進行文本探勘，挖掘重要關鍵字
