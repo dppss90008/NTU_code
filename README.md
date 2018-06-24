@@ -7,15 +7,15 @@
 # 課程學習歷程
 
 ## Final project <選戰懶人包>
-- [R shiny] (https://dppss90008.shinyapps.io/news_shiny/)
-- [ptt簡報] (https://docs.google.com/presentation/d/1p2vua3FNWMaGRWYAarCJ8WTwRFNiI9LmvhUbOLukDQY/edit?ts=5b2aed95#slide=id.p) 
+- [R shiny](https://dppss90008.shinyapps.io/news_shiny/)
+- [ptt簡報](https://docs.google.com/presentation/d/1p2vua3FNWMaGRWYAarCJ8WTwRFNiI9LmvhUbOLukDQY/edit?ts=5b2aed95#slide=id.p) 
 
 ## Week_11
-- 作業<project5> [project5]((https://dppss90008.github.io/NTU-CSX-DataScience--Group5/Project5/project.html)
+- 作業<project5> [project5](https://dppss90008.github.io/NTU-CSX-DataScience--Group5/Project5/project.html)
 
 
 ## Week_10
-- 作業<project4> [project4]((https://dppss90008.github.io/NTU-CSX-DataScience--Group5/project4/project4.html)
+- 作業<project4> [project4](https://dppss90008.github.io/NTU-CSX-DataScience--Group5/project4/project4.html)
 
 
 ## Week_8 : 
