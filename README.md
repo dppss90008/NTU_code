@@ -21,7 +21,7 @@
 
 ## Week_8 : 
 - 目標: 利用ML預測與學習資料
-- 作業<project 3> [變數處理與畫圖](https://github.com/dppss90008/NTU-CSX-DataScience--Group5/blob/master/Project3/TitanicVariable.R) 
+- 作業<project 3> [變數處理與畫圖](https://dppss90008.github.io/NTU-CSX-DataScience--Group5/Project3/TitanicVariable_final.html) 
 - 作業<project 3> [ML預測](https://dppss90008.github.io/NTU-CSX-DataScience--Group5/Project3/project_3.nb.html)
 - 這是我們三個人一起寫作完成，我們視覺化分析titanic train data 選擇˙pclass + sex + family + body + boat 五個變數
 - 再利用SVM進行學習: 準確率有0.978!!!!!
